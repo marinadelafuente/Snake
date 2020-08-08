@@ -3,8 +3,9 @@
   width: 20rem;
   margin: 0 auto;
 
-  h2, .score {
-text-align: left;
+  h2,
+  .score {
+    text-align: left;
   }
 }
 
@@ -20,6 +21,10 @@ text-align: left;
   .square {
     width: 2rem;
     height: 2rem;
+    // background-color: $primary-color;
+  }
+
+  .snake {
     background-color: $primary-color;
   }
 }

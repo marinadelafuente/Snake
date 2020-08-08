@@ -4,22 +4,28 @@ const grid = document.querySelector(".grid");
 const score = document.querySelector(".score");
 const startBtn = document.querySelector(".btn__start");
 const resetBtn = document.querySelector(".btn__reset");
-let snakeSquares = [];
+let squares = [];
+let currentSnake = [2, 1, 0];
 
 const createGrid = () => {
-  // create 100 elementss with a for loop
   for (let i = 0; i < 100; i++) {
     const square = document.createElement("div");
     square.classList.add("square");
     grid.appendChild(square);
-    snakeSquares.push(square);
-    console.log(snakeSquares);
-    // let html = '<div class="square"></div>';
-    // grid.innerHTML += html;
-    // let snakeSquares = Array.from(grid.children);
-    // console.log(snakeSquares);
+    squares.push(square);
   }
-  //   console.log(grid);
 };
-
 createGrid();
+
+currentSnake.forEach((square) => {
+  squares[square].classList.add("snake");
+});
+
+const move = () => {
+  let tail = currentSnake.pop();
+  squares[tail].classList.remove("snake");
+  currentSnake.unshift(currentSnake[0] + 1);
+  let head = currentSnake[0];
+  squares[head].classList.add("snake");
+};
+move();
