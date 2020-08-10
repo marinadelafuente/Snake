@@ -13,18 +13,27 @@
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  width: 20rem;
+  width: 19.96rem;
   height: 20rem;
-  border: 1px solid $black-color;
+  border: 0.1px solid $black-color;
   margin: 0 auto;
 
-  .square {
-    width: 2rem;
+  & div {
+    width: 1.98rem;
     height: 2rem;
+    border: 0.1px solid $black-color;
     // background-color: $primary-color;
   }
 
   .snake {
     background-color: $primary-color;
+  }
+
+  .apple {
+    background-color: $secondary-color;
+  }
+
+  .game-over {
+     background-color: $secondary-color;
   }
 }
