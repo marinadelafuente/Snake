@@ -18,11 +18,9 @@
   border: 0.1px solid $black-color;
   margin: 0 auto;
 
-  & div {
+  .square {
     width: 1.98rem;
     height: 2rem;
-    border: 0.1px solid $black-color;
-    // background-color: $primary-color;
   }
 
   .snake {
@@ -34,6 +32,6 @@
   }
 
   .game-over {
-     background-color: $secondary-color;
+    background-color: $secondary-color;
   }
 }
