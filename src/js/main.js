@@ -14,6 +14,7 @@ let direction = 1;
 let score = 0;
 let intervalId;
 let intervalTime = 1000;
+// let head = squares[currentSnake[0]];
 
 // create the grid in which the snake moves
 const createGrid = () => {
@@ -31,6 +32,7 @@ const paintSnake = () => {
   console.log('paint');
   currentSnake.forEach((square) => {
     squares[square].classList.add('snake');
+    squares[currentSnake[0]].classList.add('snake__head');
   });
 };
 paintSnake();
@@ -61,10 +63,16 @@ const moveSnake = () => {
   }
   let tail = currentSnake.pop();
   squares[tail].classList.remove('snake');
+  squares[tail].classList.remove('snake__head');
   currentSnake.unshift(currentSnake[0] + direction);
-  //   snakeHead = currentSnake[0];
+  let head = currentSnake[0];
   afterAppleEating(tail);
-  squares[currentSnake[0]].classList.add('snake');
+  squares[head].classList.add('snake');
+  currentSnake.forEach((item) => {
+    squares[item].classList.add('snake');
+    squares[item].classList.remove('snake__head');
+  });
+  squares[head].classList.add('snake__head');
 };
 
 const afterAppleEating = (tail) => {
@@ -111,6 +119,7 @@ const controlMove = (ev) => {
 const reset = () => {
   currentSnake.forEach((square) => {
     squares[square].classList.remove('snake');
+    squares[square].classList.remove('snake__head');
     squares[square].classList.remove('game-over');
   });
   squares[appleIndex].classList.remove('apple');
@@ -127,6 +136,7 @@ const reset = () => {
 const resetAndStop = () => {
   clearInterval(intervalId);
   reset();
+  clearInterval(intervalId);
 
   // squares.forEach((square) => {
   //   let index = squares.indexOf(square);

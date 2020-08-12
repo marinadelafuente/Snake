@@ -6,29 +6,56 @@
   h2,
   .score {
     text-align: left;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
   }
+}
+
+.btn {
+  @include button;
+  margin-right: 1rem;
 }
 
 .grid {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  width: 19.96rem;
+  width: 20rem;
   height: 20rem;
-  border: 0.1px solid $black-color;
   margin: 0 auto;
+  background-color: $black-color;
 
   .square {
-    width: 1.98rem;
+    width: 2rem;
     height: 2rem;
+    border: 0.1px solid $primary-color;
   }
 
   .snake {
+    border: 0.1px solid $white-color;
+    background-color: $primary-color;
+    border-radius: 50%;
+  }
+
+  .snake__head {
     background-color: $primary-color;
   }
 
-  .apple {
+  .snake__head::before {
+    content: '';
     background-color: $secondary-color;
+    display: inline-block;
+    margin-left: 12px;
+    margin-top: 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+
+  .apple {
+    background-image: url('../images/apple.png');
+    background-position: cover;
+    background-repeat: no-repeat;
   }
 
   .game-over {

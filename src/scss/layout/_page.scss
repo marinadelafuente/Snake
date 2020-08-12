@@ -1,10 +1,19 @@
 body {
   font-size: 10px;
-  padding: 1rem;
   margin: 1rem;
   font-family: $font-main;
+  background-image: url('../images/background.jpg');
+  background-position: cover;
+  background-repeat: no-repeat;
 }
 
 .page {
   text-align: center;
+  background-color: rgba(250, 245, 245, 0.377);
+  width: 450px;
+  margin: 0 auto;
+  border: 5px solid rgb(6, 161, 16);
+-webkit-box-shadow: 1px 0px 0px 5px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 0px 0px 5px rgba(0,0,0,0.75);
+box-shadow: 1px 0px 0px 5px rgba(0,0,0,0.75);
 }

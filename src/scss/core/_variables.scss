@@ -1,11 +1,22 @@
 // fonts
-$font-main: "Roboto", sans-serif;
+$font-main:'Sedgwick Ave', cursive;
+$font-path: '../fonts';
+
+@font-face {
+  src: url('#{$font-path}/arcadeclassic.ttf') format('ttf');
+  font-family: 'Arcade Classic';
+}
+
+@font-face {
+  src: url('#{$font-path}/joystix.ttf') format('ttf');
+  font-family: 'Joystix';
+}
 
 // colors
 $white-color: #f3f4f5;
-$primary-color: rgb(12, 90, 16);
+$primary-color: rgb(6, 161, 16);
 $secondary-color: rgb(153, 6, 6);
 $tertiary-color: #9999;
-$button-color: #099d8d;
+$button-color: #0b4e11;
 $buttonHover-color: #0a312d;
 $black-color: rgb(0, 0, 0);
