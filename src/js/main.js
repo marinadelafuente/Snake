@@ -14,7 +14,6 @@ let direction = 1;
 let score = 0;
 let intervalId;
 let intervalTime = 1000;
-// let head = squares[currentSnake[0]];
 
 // create the grid in which the snake moves
 const createGrid = () => {
@@ -29,7 +28,6 @@ createGrid();
 
 // paint the snake
 const paintSnake = () => {
-  console.log('paint');
   currentSnake.forEach((square) => {
     squares[square].classList.add('snake');
     squares[currentSnake[0]].classList.add('snake__head');
@@ -53,7 +51,6 @@ const moveSnake = () => {
     (currentSnake[0] - gridWidth < 0 && direction === -gridWidth) || //if snake hits the top
     squares[currentSnake[0] + direction].classList.contains('snake') //if snake goes into itself
   ) {
-    console.log('reset');
     clearInterval(intervalId);
     currentSnake.forEach((square) => {
       squares[square].classList.add('game-over');
@@ -65,14 +62,25 @@ const moveSnake = () => {
   squares[tail].classList.remove('snake');
   squares[tail].classList.remove('snake__head');
   currentSnake.unshift(currentSnake[0] + direction);
+
   let head = currentSnake[0];
   afterAppleEating(tail);
   squares[head].classList.add('snake');
   currentSnake.forEach((item) => {
     squares[item].classList.add('snake');
-    squares[item].classList.remove('snake__head');
+    squares[item].classList.remove(
+      'snake__head',
+      'snake__head-down',
+      'snake__head-left'
+    );
   });
-  squares[head].classList.add('snake__head');
+  if (direction === gridWidth) {
+    squares[head].classList.add('snake__head-down');
+  } else if (direction === -1) {
+    squares[head].classList.add('snake__head-left');
+  } else {
+    squares[head].classList.add('snake__head');
+  }
 };
 
 const afterAppleEating = (tail) => {
@@ -118,9 +126,13 @@ const controlMove = (ev) => {
 
 const reset = () => {
   currentSnake.forEach((square) => {
-    squares[square].classList.remove('snake');
-    squares[square].classList.remove('snake__head');
-    squares[square].classList.remove('game-over');
+    squares[square].classList.remove(
+      'snake',
+      'snake__head',
+      'snake__head-down',
+      'snake__head-left',
+      'game-over'
+    );
   });
   squares[appleIndex].classList.remove('apple');
 
@@ -137,17 +149,6 @@ const resetAndStop = () => {
   clearInterval(intervalId);
   reset();
   clearInterval(intervalId);
-
-  // squares.forEach((square) => {
-  //   let index = squares.indexOf(square);
-  //   if (currentSnake.includes(index)) {
-  //     currentSnake.forEach((square) => {
-  //       squares[square].classList.add('snake');
-  //     });
-  //   } else {
-  //     square.classList.remove('snake');
-  //   }
-  // });
 };
 
 document.addEventListener('keyup', controlMove);

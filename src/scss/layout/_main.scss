@@ -32,24 +32,67 @@
   }
 
   .snake {
-    border: 0.1px solid $white-color;
-    background-color: $primary-color;
+    // border: 0.1px solid $white-color;
+    background-color: $third-color;
     border-radius: 50%;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      border: 0.1px solid $white-color;
+      background-color: $primary-color;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      margin: 5px;
+    }
   }
 
   .snake__head {
     background-color: $primary-color;
+
+    &::before {
+      content: '';
+      background-color: $secondary-color;
+      display: inline-block;
+      margin-left: 18px;
+      margin-top: 6px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      border-color: $secondary-color;
+    }
   }
 
-  .snake__head::before {
-    content: '';
-    background-color: $secondary-color;
-    display: inline-block;
-    margin-left: 12px;
-    margin-top: 7px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+  .snake__head-down {
+    background-color: $primary-color;
+
+    &::before {
+      content: '';
+      background-color: $secondary-color;
+      display: inline-block;
+      margin-left: 12px;
+      margin-top: 18px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      border-color: $secondary-color;
+    }
+  }
+
+  .snake__head-left {
+    background-color: $primary-color;
+
+    &::before {
+      content: '';
+      background-color: $secondary-color;
+      display: inline-block;
+      margin-right: 18px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      border-color: $secondary-color;
+    }
   }
 
   .apple {
@@ -60,5 +103,10 @@
 
   .game-over {
     background-color: $secondary-color;
+    border-color: $secondary-color;
+
+    &::before {
+      background-color: $secondary-color;
+    }
   }
 }
