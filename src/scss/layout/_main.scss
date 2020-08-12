@@ -15,9 +15,16 @@
   @include button;
   margin-right: 1rem;
 
-  &__start {
-    width: 3rem;
-  }
+}
+
+.unavailable {
+  background-color: $grey-color;
+  color: $white-color;
+  padding: 0.4rem 1.2rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  font-size: larger;
+  margin-right: 1rem;
 }
 
 .grid {

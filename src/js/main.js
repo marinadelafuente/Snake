@@ -50,11 +50,13 @@ function sound(src) {
     this.sound.pause();
   };
 }
-
 // start the game: the snake starts moving
 const startGame = () => {
-  generateApples();
-  intervalId = setInterval(moveSnake, intervalTime);
+    generateApples();
+    intervalId = setInterval(moveSnake, intervalTime);
+    startBtn.style.pointerEvents = 'none';
+    startBtn.classList.remove('btn');
+    startBtn.classList.add('unavailable');
 };
 
 // move the snake one movement at a time
@@ -153,6 +155,9 @@ const reset = () => {
     );
   });
   squares[appleIndex].classList.remove('apple');
+  startBtn.style.pointerEvents = 'auto';
+  startBtn.classList.add('btn');
+  startBtn.classList.remove('unavailable');
 
   currentSnake = [2, 1, 0];
   currentIndex = 0;
