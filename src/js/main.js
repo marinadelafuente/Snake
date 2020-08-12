@@ -14,6 +14,7 @@ let direction = 1;
 let score = 0;
 let intervalId;
 let intervalTime = 1000;
+let mySound;
 
 // create the grid in which the snake moves
 const createGrid = () => {
@@ -34,6 +35,21 @@ const paintSnake = () => {
   });
 };
 paintSnake();
+
+function sound(src) {
+  this.sound = document.createElement('audio');
+  this.sound.src = src;
+  this.sound.setAttribute('preload', 'auto');
+  this.sound.setAttribute('controls', 'none');
+  this.sound.style.display = 'none';
+  document.body.appendChild(this.sound);
+  this.play = function () {
+    this.sound.play();
+  };
+  this.stop = function () {
+    this.sound.pause();
+  };
+}
 
 // start the game: the snake starts moving
 const startGame = () => {
@@ -85,6 +101,8 @@ const moveSnake = () => {
 
 const afterAppleEating = (tail) => {
   if (squares[currentSnake[0]].classList.contains('apple')) {
+    mySound = new sound('./assets/sounds/tink.wav');
+    mySound.play();
     //remove the class of apple
     squares[appleIndex].classList.remove('apple');
     //grow the snake by adding class of snake to it

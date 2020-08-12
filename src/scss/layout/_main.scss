@@ -14,6 +14,10 @@
 .btn {
   @include button;
   margin-right: 1rem;
+
+  &__start {
+    width: 3rem;
+  }
 }
 
 .grid {
@@ -22,8 +26,8 @@
   text-align: center;
   width: 20rem;
   height: 20rem;
-  margin: 0 auto;
   background-color: $black-color;
+  margin-bottom: 2rem;
 
   .square {
     width: 2rem;

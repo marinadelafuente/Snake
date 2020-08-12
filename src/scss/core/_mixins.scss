@@ -1,12 +1,22 @@
 @mixin button {
-  background-color: $button-color;
+  background: linear-gradient(
+    to bottom,
+    $button-color 35%,
+    $buttonHover-color 100%
+  );
+  box-shadow: inset 0px 1px 3px 0px $button-color;
   color: $white-color;
-  padding: 0.4rem;
+  padding: 0.4rem 1.2rem;
   border-radius: 0.5rem;
   margin-top: 1rem;
   cursor: pointer;
+  font-size: larger;
 
   &:hover {
-    background-color: $buttonHover-color;
+    background: linear-gradient(
+    to bottom,
+    $buttonHover-color 10%,
+    $button-color 100%
+  );
   }
 }

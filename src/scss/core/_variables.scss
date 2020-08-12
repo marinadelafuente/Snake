@@ -1,15 +1,23 @@
 // fonts
-$font-main:'Sedgwick Ave', cursive;
+$font-main:'Joystix';
+$font-title:'ArcadeClassic';
 $font-path: '../fonts';
 
 @font-face {
-  src: url('#{$font-path}/arcadeclassic.ttf') format('ttf');
-  font-family: 'Arcade Classic';
+  font-family: 'Arcade';
+  src: url('#{$font-path}/Arcade.ttf');
 }
 
 @font-face {
-  src: url('#{$font-path}/joystix.ttf') format('ttf');
-  font-family: 'Joystix';
+    font-family: 'ArcadeClassic';
+  src: url('#{$font-path}/arcadeclassic.ttf');
+
+}
+
+@font-face {
+   font-family: 'Joystix';
+  src: url('#{$font-path}/joystix.ttf');
+ 
 }
 
 // colors
@@ -19,5 +27,5 @@ $secondary-color: rgb(153, 6, 6);
 $third-color: rgb(172, 250, 54);
 $grey-color: #9999;
 $button-color: #0b4e11;
-$buttonHover-color: #0a312d;
+$buttonHover-color: rgb(128, 196, 26);;
 $black-color: rgb(0, 0, 0);
