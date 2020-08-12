@@ -36,6 +36,7 @@ const paintSnake = () => {
 };
 paintSnake();
 
+// add sound when the snake eats the apple
 function sound(src) {
   this.sound = document.createElement('audio');
   this.sound.src = src;
@@ -52,11 +53,11 @@ function sound(src) {
 }
 // start the game: the snake starts moving
 const startGame = () => {
-    generateApples();
-    intervalId = setInterval(moveSnake, intervalTime);
-    startBtn.style.pointerEvents = 'none';
-    startBtn.classList.remove('btn');
-    startBtn.classList.add('unavailable');
+  generateApples();
+  intervalId = setInterval(moveSnake, intervalTime);
+  startBtn.style.pointerEvents = 'none';
+  startBtn.classList.replace('btn', 'unavailable');
+  // startBtn.classList.add();
 };
 
 // move the snake one movement at a time

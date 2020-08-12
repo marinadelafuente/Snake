@@ -13,18 +13,11 @@
 
 .btn {
   @include button;
-  margin-right: 1rem;
-
 }
 
 .unavailable {
-  background-color: $grey-color;
-  color: $white-color;
-  padding: 0.4rem 1.2rem;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
-  font-size: larger;
-  margin-right: 1rem;
+  @include button;
+  background: $grey-color;
 }
 
 .grid {
@@ -43,7 +36,6 @@
   }
 
   .snake {
-    // border: 0.1px solid $white-color;
     background-color: $third-color;
     border-radius: 50%;
 
@@ -63,46 +55,27 @@
     background-color: $primary-color;
 
     &::before {
-      content: '';
-      background-color: $secondary-color;
-      display: inline-block;
+      @include snake__head;
       margin-left: 18px;
       margin-top: 6px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      border-color: $secondary-color;
     }
-  }
 
-  .snake__head-down {
-    background-color: $primary-color;
+    &-down {
+      background-color: $primary-color;
 
-    &::before {
-      content: '';
-      background-color: $secondary-color;
-      display: inline-block;
-      margin-left: 12px;
-      margin-top: 18px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      border-color: $secondary-color;
+      &::before {
+        @include snake__head;
+        margin-left: 12px;
+        margin-top: 18px;
+      }
     }
-  }
+    &-left {
+      background-color: $primary-color;
 
-  .snake__head-left {
-    background-color: $primary-color;
-
-    &::before {
-      content: '';
-      background-color: $secondary-color;
-      display: inline-block;
-      margin-right: 18px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      border-color: $secondary-color;
+      &::before {
+        @include snake__head;
+        margin-right: 18px;
+      }
     }
   }
 
@@ -115,9 +88,85 @@
   .game-over {
     background-color: $secondary-color;
     border-color: $secondary-color;
+    -webkit-animation: game-over 0.85s linear infinite;
+    -moz-animation: game-over 0.85s linear infinite;
+    -ms-animation: game-over 0.85s linear infinite;
+    -o-animation: game-over 0.85s linear infinite;
+    animation: game-over 0.85s linear infinite;
 
     &::before {
       background-color: $secondary-color;
     }
+  }
+}
+
+@-webkit-keyframes game-over {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes game-over {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-ms-keyframes game-over {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes game-over {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes game-over {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }

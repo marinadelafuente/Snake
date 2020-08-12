@@ -11,12 +11,23 @@
   margin-top: 1rem;
   cursor: pointer;
   font-size: larger;
+  margin-right: 1rem;
 
   &:hover {
     background: linear-gradient(
-    to bottom,
-    $buttonHover-color 10%,
-    $button-color 100%
-  );
+      to bottom,
+      $buttonHover-color 10%,
+      $button-color 100%
+    );
   }
+}
+
+@mixin snake__head {
+  content: '';
+  background-color: $secondary-color;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border-color: $secondary-color;
 }
