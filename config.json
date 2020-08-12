@@ -22,10 +22,13 @@
     "dest": "public/",
     "dist": "docs/"
   },
+  "fonts": {
+    "src": "_src/assets/fonts/*.{ttf,TTF}",
+    "dest": "public/assets/fonts/",
+    "dist": "docs/assets/fonts/"
+  },
   "js": {
-    "src": [
-      "src/js/**/*.js"
-    ],
+    "src": ["src/js/**/*.js"],
     "dest": "public/assets/js/",
     "dist": "docs/assets/js/"
   },
