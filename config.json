@@ -23,7 +23,7 @@
     "dist": "docs/"
   },
   "fonts": {
-    "src": "_src/assets/fonts/*.{ttf,TTF}",
+    "src": "_src/assets/fonts/**/*.{ttf,TTF}",
     "dest": "public/assets/fonts/",
     "dist": "docs/assets/fonts/"
   },
@@ -36,6 +36,11 @@
     "src": "src/images/**/*.{gif,jpg,jpeg,JPG,JPEG,png,svg}",
     "dest": "public/assets/images/",
     "dist": "docs/assets/images/"
+  },
+  "sounds": {
+    "src": "_src/assets/sounds/**/*.{mp3,wav,mp4,MP3,WAV,MP4}",
+    "dest": "public/assets/sounds/",
+    "dist": "docs/assets/sounds/"
   },
   "watch": {
     "html": "src/**/*.html"

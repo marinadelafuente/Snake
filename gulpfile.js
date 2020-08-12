@@ -64,7 +64,6 @@ gulp.task('css-dist', (done) => {
   done();
 });
 
-
 gulp.task('html', (done) => {
   gulp
     .src(config.html.src)
@@ -147,20 +146,44 @@ gulp.task('images-dist', (done) => {
   done();
 });
 
+gulp.task('sounds', function (done) {
+  gulp
+    .src(config.sounds.src)
+    .pipe(
+      plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+    )
+    .pipe(gulp.dest(config.sounds.dest));
+  done();
+});
+
+gulp.task('sounds-dist', function (done) {
+  gulp
+    .src(config.sounds.src)
+    .pipe(
+      plumber({ errorHandler: notify.onError('Error: <%= error.message %>') })
+    )
+    .pipe(gulp.dest(config.sounds.dist));
+  done();
+});
+
 // main tasks
 
 gulp.task(
   'default',
-  gulp.series(['clean', 'api', 'html', 'fonts', 'css', 'js', 'images'], (done) => {
-    browserSync.init({ server: { baseDir: './public/' } });
-    gulp.watch(config.api.src, gulp.series(['api', 'bs-reload']));
-    gulp.watch(config.css.src, gulp.series('css'));
-    gulp.watch(config.fonts.src, gulp.series(['fonts', 'bs-reload']));
-    gulp.watch(config.images.src, gulp.series(['images', 'bs-reload']));
-    gulp.watch(config.js.src, gulp.series(['js', 'bs-reload']));
-    gulp.watch(config.watch.html, gulp.series(['html', 'bs-reload']));
-    done();
-  })
+  gulp.series(
+    ['clean', 'api', 'html', 'fonts', 'css', 'js', 'images', 'sounds'],
+    (done) => {
+      browserSync.init({ server: { baseDir: './public/' } });
+      gulp.watch(config.api.src, gulp.series(['api', 'bs-reload']));
+      gulp.watch(config.css.src, gulp.series('css'));
+      gulp.watch(config.fonts.src, gulp.series(['fonts', 'bs-reload']));
+      gulp.watch(config.images.src, gulp.series(['images', 'bs-reload']));
+      gulp.watch(config.js.src, gulp.series(['js', 'bs-reload']));
+      gulp.watch(config.sounds.src, gulp.series(['sounds', 'bs-reload']));
+      gulp.watch(config.watch.html, gulp.series(['html', 'bs-reload']));
+      done();
+    }
+  )
 );
 
 gulp.task(
@@ -174,6 +197,7 @@ gulp.task(
       'html-dist',
       'js-dist',
       'images-dist',
+      'sounds-dist',
       // 'icons-dist'
     ],
     (done) => done()
