@@ -23,8 +23,19 @@
 }
 
 @mixin snake__head {
+  border-radius: 30%;
+  box-shadow: inset 0px 1px 3px 0px $button-color;
+  background: linear-gradient(
+    to bottom,
+    $third-color 5%,
+    $primary-color 40%,
+    $button-color 100%
+  );
+}
+
+@mixin snake__head-before {
   content: '';
-  background-color: $secondary-color;
+  background: linear-gradient(to right, $black-color 5%, $secondary-color 100%);
   display: inline-block;
   width: 7px;
   height: 7px;

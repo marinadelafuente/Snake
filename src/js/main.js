@@ -31,7 +31,7 @@ createGrid();
 const paintSnake = () => {
   currentSnake.forEach((square) => {
     squares[square].classList.add('snake');
-    squares[currentSnake[0]].classList.add('snake__head');
+    squares[currentSnake[0]].classList.replace('snake','snake__head');
   });
 };
 paintSnake();
@@ -84,7 +84,7 @@ const moveSnake = () => {
 
   let head = currentSnake[0];
   afterAppleEating(tail);
-  squares[head].classList.add('snake');
+  // squares[head].classList.add('snake');
   currentSnake.forEach((item) => {
     squares[item].classList.add('snake');
     squares[item].classList.remove(
@@ -94,11 +94,11 @@ const moveSnake = () => {
     );
   });
   if (direction === gridWidth) {
-    squares[head].classList.add('snake__head-down');
+    squares[head].classList.replace('snake','snake__head-down');
   } else if (direction === -1) {
-    squares[head].classList.add('snake__head-left');
+    squares[head].classList.replace('snake','snake__head-left');
   } else {
-    squares[head].classList.add('snake__head');
+    squares[head].classList.replace('snake','snake__head');
   }
 };
 
@@ -157,8 +157,7 @@ const reset = () => {
   });
   squares[appleIndex].classList.remove('apple');
   startBtn.style.pointerEvents = 'auto';
-  startBtn.classList.add('btn');
-  startBtn.classList.remove('unavailable');
+  startBtn.classList.replace('unavailable', 'btn');
 
   currentSnake = [2, 1, 0];
   currentIndex = 0;

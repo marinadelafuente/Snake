@@ -36,14 +36,17 @@
   }
 
   .snake {
-    background-color: $third-color;
-    border-radius: 50%;
+    border-radius: 30%;
+    background: linear-gradient(
+      to bottom,
+      $third-color 35%,
+      $primary-color 100%
+    );
+    box-shadow: inset 0px 1px 3px 0px $button-color;
 
     &::before {
       content: '';
       display: inline-block;
-      border: 0.1px solid $white-color;
-      background-color: $primary-color;
       border-radius: 50%;
       width: 18px;
       height: 18px;
@@ -52,28 +55,27 @@
   }
 
   .snake__head {
-    background-color: $primary-color;
-
+    @include snake__head;
     &::before {
-      @include snake__head;
+      @include snake__head-before;
       margin-left: 18px;
       margin-top: 6px;
     }
 
     &-down {
-      background-color: $primary-color;
+      @include snake__head;
 
       &::before {
-        @include snake__head;
+        @include snake__head-before;
         margin-left: 12px;
         margin-top: 18px;
       }
     }
     &-left {
-      background-color: $primary-color;
+      @include snake__head;
 
       &::before {
-        @include snake__head;
+        @include snake__head-before;
         margin-right: 18px;
       }
     }
@@ -86,17 +88,19 @@
   }
 
   .game-over {
-    background-color: $secondary-color;
+    border-radius: 30%;
+    box-shadow: inset 0px 1px 3px 0px $button-color;
     border-color: $secondary-color;
+    background: linear-gradient(
+      to bottom,
+      $secondary-color 40%,
+      $black-color 100%
+    );
     -webkit-animation: game-over 0.85s linear infinite;
     -moz-animation: game-over 0.85s linear infinite;
     -ms-animation: game-over 0.85s linear infinite;
     -o-animation: game-over 0.85s linear infinite;
     animation: game-over 0.85s linear infinite;
-
-    &::before {
-      background-color: $secondary-color;
-    }
   }
 }
 
