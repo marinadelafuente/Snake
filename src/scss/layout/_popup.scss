@@ -28,11 +28,14 @@
   background-color: $third-color;
   position: absolute;
   top: 11px;
-  left: 363px;
+  left: 266px;
   z-index: 5;
-  //   width: fit-content;
   max-width: 456px;
   padding: 0.7rem;
+
+   @media all and (min-width: $md) {
+left: 363px;
+  }
 
   h2 {
     text-align: center;
