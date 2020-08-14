@@ -17,7 +17,8 @@ let direction = 1;
 let score = 0;
 let intervalId;
 let intervalTime = 1000;
-let mySound;
+let eatSound;
+let gameOverSound;
 
 const openPopUp = () => {
   popUp.style.display = 'block';
@@ -49,7 +50,7 @@ const paintSnake = () => {
 };
 paintSnake();
 
-// add sound when the snake eats the apple
+// add sounds
 function sound(src) {
   this.sound = document.createElement('audio');
   this.sound.src = src;
@@ -70,7 +71,6 @@ const startGame = () => {
   intervalId = setInterval(moveSnake, intervalTime);
   startBtn.style.pointerEvents = 'none';
   startBtn.classList.replace('btn', 'unavailable');
-  // startBtn.classList.add();
 };
 
 // move the snake one movement at a time
@@ -86,6 +86,8 @@ const moveSnake = () => {
     clearInterval(intervalId);
     currentSnake.forEach((square) => {
       squares[square].classList.add('game-over');
+      gameOverSound = new sound('./assets/sounds/game-over.wav');
+      gameOverSound.play();
     });
     //this will clear the interval if any of the above happen
     return setTimeout(reset, 2000);
@@ -117,8 +119,8 @@ const moveSnake = () => {
 
 const afterAppleEating = (tail) => {
   if (squares[currentSnake[0]].classList.contains('apple')) {
-    mySound = new sound('./assets/sounds/tink.wav');
-    mySound.play();
+    eatSound = new sound('./assets/sounds/eatSound.ogg');
+    eatSound.play();
     //remove the class of apple
     squares[appleIndex].classList.remove('apple');
     //grow the snake by adding class of snake to it
