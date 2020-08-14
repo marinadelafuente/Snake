@@ -7,6 +7,8 @@ To remember older times where having a Nokia 3310 was all you wished for, I have
 
 Use the ↑ ← ↓ → in your computer to move the snake and eat the apples to earn points. 
 
+Play [here](marinadelafuente.github.io/snake/)
+
 - Developed with HTML, SASS and JavaScript.
 
 
