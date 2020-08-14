@@ -63,17 +63,6 @@
       margin-top: 6px;
     }
 
-    // &::after {
-    //   content: '~';
-    //   color: red;
-    //   display: inline-block;
-    //   margin-left: 18px;
-    //   margin-top: 6px;
-    //   position: relative;
-    //   top: -8px;
-    //   left: 11px;
-    // }
-
     &-down {
       @include snake__head;
 

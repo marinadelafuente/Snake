@@ -182,7 +182,7 @@ const reset = () => {
   direction = 1;
   intervalTime = 1000;
 };
-// // reset the game: the snake stops moving and gets back to initial state
+// reset the game: the snake stops moving and gets back to initial state
 const resetAndStop = () => {
   clearInterval(intervalId);
   reset();
