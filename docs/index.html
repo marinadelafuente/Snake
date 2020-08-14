@@ -4,18 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Snake game</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon.ico"
+      type="image/x-icon"
+    />
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
   </head>
 
   <body>
     <div class="page">
+      <aside>
+        <button class="btn__pop-up">Instructions</button>
+        <div class="pop-up">
+          <div class="btn__pop-up__close">x</div>
+          <h2>Instructions</h2>
+          <ol>
+            <li>Click PLAY</li>
+            <li>
+              Use the arrows <span>↑</span><span>←</span><span>↓</span
+              ><span>→</span> on your computer to move the snake around the screen.
+            </li>
+            <li>Eat the apples to earn points.</li>
+            <li>Avoid hitting the walls or yourself.</li>
+            <li>Click reset if you want to stop the game and start again.</li>
+          </ol>
+        </div>
+      </aside>
+
       <header class="page__header">
         <img
           src="./assets/images/snake.png"
@@ -29,8 +54,7 @@
         <a class="btn btn__start">PLAY</a>
         <a class="btn btn__reset">RESET</a>
         <h2>Score: <span class="score">0</span></h2>
-        <div class='grid'>
-          </div>
+        <div class="grid"></div>
       </main>
 
       <footer class="page__footer">

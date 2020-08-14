@@ -1,5 +1,8 @@
 'use strict';
 
+const popUpBtn = document.querySelector('.btn__pop-up');
+const popUpClose = document.querySelector('.btn__pop-up__close');
+const popUp = document.querySelector('.pop-up');
 const grid = document.querySelector('.grid');
 const startBtn = document.querySelector('.btn__start');
 const resetBtn = document.querySelector('.btn__reset');
@@ -16,6 +19,16 @@ let intervalId;
 let intervalTime = 1000;
 let mySound;
 
+const openPopUp = () => {
+  popUp.style.display = 'block';
+};
+
+const closePopUp = (ev) => {
+  if (ev.target.classList.contains('pop-up') || ev.target === popUpClose) {
+    popUp.style.display = 'none';
+  }
+};
+
 // create the grid in which the snake moves
 const createGrid = () => {
   for (let i = 0; i < gridWidth * gridWidth; i++) {
@@ -31,7 +44,7 @@ createGrid();
 const paintSnake = () => {
   currentSnake.forEach((square) => {
     squares[square].classList.add('snake');
-    squares[currentSnake[0]].classList.replace('snake','snake__head');
+    squares[currentSnake[0]].classList.replace('snake', 'snake__head');
   });
 };
 paintSnake();
@@ -94,11 +107,11 @@ const moveSnake = () => {
     );
   });
   if (direction === gridWidth) {
-    squares[head].classList.replace('snake','snake__head-down');
+    squares[head].classList.replace('snake', 'snake__head-down');
   } else if (direction === -1) {
-    squares[head].classList.replace('snake','snake__head-left');
+    squares[head].classList.replace('snake', 'snake__head-left');
   } else {
-    squares[head].classList.replace('snake','snake__head');
+    squares[head].classList.replace('snake', 'snake__head');
   }
 };
 
@@ -174,6 +187,8 @@ const resetAndStop = () => {
   clearInterval(intervalId);
 };
 
+popUpBtn.addEventListener('click', openPopUp);
+popUpClose.addEventListener('click', closePopUp);
 document.addEventListener('keyup', controlMove);
 startBtn.addEventListener('click', startGame);
 resetBtn.addEventListener('click', resetAndStop);

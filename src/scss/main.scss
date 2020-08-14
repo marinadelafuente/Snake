@@ -1,7 +1,9 @@
-@import 'core/variables';
-@import 'core/reset';
-@import 'core/mixins';
+@import 'settings/variables';
+@import 'settings/reset';
+@import 'settings/breakpoints';
+@import 'settings/mixins';
 @import 'layout/page';
+@import 'layout/popup';
 @import 'layout/header';
 @import 'layout/main';
 @import 'layout/footer';
