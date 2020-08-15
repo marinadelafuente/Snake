@@ -12,7 +12,6 @@ Play [here](https://marinadelafuente.github.io/Snake/).
 - Developed with HTML, SASS and JavaScript.
 
 
-- If you want to download and use the code:
-    - Clone/Download
+- If you want to run the code:
     - Npm install
     - Npm start
